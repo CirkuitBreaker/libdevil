@@ -39,15 +39,6 @@ extern "C" {
 #include "il_files.h"
 #include "il_endian.h"
 
-/* missing code from Denton Woods himself*/
-#ifdef RESTRICT_KEYWORD
-#define RESTRICT restrict
-#define CONST_RESTRICT const restrict
-#else
-#define RESTRICT
-#define CONST_RESTRICT const
-#endif
-
 #ifndef _WIN32
 	// The Microsoft HD Photo Device Porting Kit has not been ported to anything other
 	//  than Windows yet, so we disable this if Windows is not the current platform.
@@ -236,7 +227,7 @@ ILboolean ilIsValidBlpL(const void *Lump, ILuint Size);
 ILboolean ilLoadBlp(ILconst_string FileName);
 ILboolean ilLoadBlpF(ILHANDLE File);
 ILboolean ilLoadBlpL(const void *Lump, ILuint Size);
-ILboolean ilIsValidBmp(ILconst_string CONST_RESTRICT FileName);
+ILboolean ilIsValidBmp(ILconst_string FileName);
 ILboolean ilIsValidBmpF(ILHANDLE File);
 ILboolean ilIsValidBmpL(const void *Lump, ILuint Size);
 ILboolean ilLoadBmp(ILconst_string FileName);
